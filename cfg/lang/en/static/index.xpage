@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE page SYSTEM "entities.dtd">
+
+<page xmlns="http://eprints.org/ep3/xpage"
+      xmlns:epc="http://eprints.org/ep3/control">
+
+  <title>KPTM Batu Pahat Library Repository</title>
+
+  <body>
+
+    <div class="kptm-homepage">
+
+      <section class="kptm-home-hero">
+
+        <div class="kptm-home-hero-inner">
+
+          <p class="kptm-home-eyebrow">
+            KPTM BATU PAHAT
+          </p>
+
+          <h2>
+            Al-Farabi Library Repository
+          </h2>
+
+          <p class="kptm-home-intro">
+            Discover academic works, research, student projects and
+            institutional materials from the KPTM Batu Pahat community.
+          </p>
+
+          <form method="get"
+                action="{$config{rel_cgipath}}/search"
+                class="kptm-home-search">
+
+            <input type="text"
+                   name="q"
+                   placeholder="Search by title, author, keyword or subject..." />
+
+            <input type="hidden"
+                   name="_action_search"
+                   value="Search" />
+
+            <input type="hidden"
+                   name="_order"
+                   value="bytitle" />
+
+            <input type="hidden"
+                   name="basic_srchtype"
+                   value="ALL" />
+
+            <input type="hidden"
+                   name="_satisfyall"
+                   value="ALL" />
+
+<input type="hidden"
+       name="type"
+       id="kptm-selected-type"
+       value="" />
+
+            <button type="submit">
+              Search Repository
+            </button>
+
+          </form>
+          
+          <div class="kptm-type-filter">
+
+
+</div>
+          
+          <div class="kptm-home-links">
+
+            <a href="{$config{rel_path}}/view/">
+              Browse Repository
+            </a>
+
+            <a href="{$config{rel_cgipath}}/search/advanced">
+              Advanced Search
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="kptm-stats-section">
+
+        <h2>
+          Repository at a Glance
+        </h2>
+
+        <div class="kptm-stats-grid">
+
+          <div class="kptm-stat-card">
+            <strong id="kptm-stat-items">—</strong>
+            <span>Repository Items</span>
+          </div>
+
+          <div class="kptm-stat-card">
+            <strong id="kptm-stat-authors">—</strong>
+            <span>Authors</span>
+          </div>
+
+          <div class="kptm-stat-card">
+            <strong id="kptm-stat-subjects">—</strong>
+            <span>Subjects</span>
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <section class="kptm-home-explore">
+
+        <h2>
+          Explore the Repository
+        </h2>
+
+        <div class="kptm-explore-grid">
+
+          <a class="kptm-explore-card"
+             href="{$config{rel_path}}/view/subjects/">
+
+            <strong>Browse by Subject</strong>
+
+            <span>
+              Explore repository materials organised by academic subject.
+            </span>
+
+          </a>
+
+
+          <a class="kptm-explore-card"
+             href="{$config{rel_cgipath}}/latest">
+
+            <strong>Latest Additions</strong>
+
+            <span>
+              Discover recently added academic works and repository items.
+            </span>
+
+          </a>
+
+
+          <a class="kptm-explore-card"
+             href="{$config{rel_cgipath}}/search/advanced">
+
+            <strong>Advanced Search</strong>
+
+            <span>
+              Search the repository using detailed metadata and filters.
+            </span>
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <script type="text/javascript">
+      // <![CDATA[
+
+      document.addEventListener("DOMContentLoaded", function () {
+
+var typeChips =
+    document.querySelectorAll(".kptm-type-chip");
+
+var selectedType =
+    document.getElementById("kptm-selected-type");
+
+typeChips.forEach(function (chip) {
+
+    chip.addEventListener("click", function () {
+
+        typeChips.forEach(function (item) {
+            item.classList.remove("active");
+        });
+
+        chip.classList.add("active");
+
+        if (selectedType) {
+            selectedType.value =
+                chip.getAttribute("data-type") || "";
+        }
+
+    });
+
+});
+
+          fetch("/cgi/kptm_stats")
+
+              .then(function (response) {
+
+                  if (!response.ok) {
+                      throw new Error("Unable to load repository statistics.");
+                  }
+
+                  return response.json();
+
+              })
+
+              .then(function (data) {
+
+                  var items =
+                      document.getElementById("kptm-stat-items");
+
+                  var authors =
+                      document.getElementById("kptm-stat-authors");
+
+                  var subjects =
+                      document.getElementById("kptm-stat-subjects");
+
+
+                  if (items) {
+                      items.textContent =
+                          data.items !== undefined
+                          ? data.items
+                          : "—";
+                  }
+
+
+                  if (authors) {
+                      authors.textContent =
+                          data.authors !== undefined
+                          ? data.authors
+                          : "—";
+                  }
+
+
+                  if (subjects) {
+                      subjects.textContent =
+                          data.subjects !== undefined
+                          ? data.subjects
+                          : "—";
+                  }
+
+              })
+
+              .catch(function () {
+
+                  var items =
+                      document.getElementById("kptm-stat-items");
+
+                  var authors =
+                      document.getElementById("kptm-stat-authors");
+
+                  var subjects =
+                      document.getElementById("kptm-stat-subjects");
+
+
+                  if (items) {
+                      items.textContent = "—";
+                  }
+
+                  if (authors) {
+                      authors.textContent = "—";
+                  }
+
+                  if (subjects) {
+                      subjects.textContent = "—";
+                  }
+
+              });
+
+      });
+
+      // ]]>
+      </script>
+
+
+    </div>
+
+  </body>
+
+</page>

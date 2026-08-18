@@ -1,0 +1,39 @@
+# ==========================================================
+# KPTM Al-Farabi Repository
+# ==========================================================
+
+# Backup files
+*.bak
+*.backup
+*.old
+*.disabled
+*.before-*
+*~
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# EPrints generated/runtime content
+html/
+var/
+documents/
+
+# Database / secrets
+*.sql
+.env
+.env.*
+*password*
+*secret*
+*credentials*
+
+# IDE
+.vscode/
+.idea/

@@ -1,0 +1,311 @@
+<?xml version="1.0" standalone="no" ?>
+<!DOCTYPE page SYSTEM "entities.dtd" >
+<xpage:page xmlns="http://www.w3.org/1999/xhtml" xmlns:xpage="http://eprints.org/ep3/xpage" xmlns:epc="http://eprints.org/ep3/control">
+<xpage:title>About the Repository</xpage:title>
+<xpage:body>
+
+  <section class="kptm-about-intro">
+
+    <div class="kptm-about-copy">
+
+      <span class="kptm-about-eyebrow">
+        ABOUT THE REPOSITORY
+      </span>
+
+      <h1>
+        Preserving Knowledge. Inspiring Futures.
+      </h1>
+
+      <p>
+        The KPTM Batu Pahat Al-Farabi Library Repository provides access
+        to academic works, research, student projects and
+        institutional materials created by the KPTM Batu Pahat
+        community.
+      </p>
+
+      <p>
+        The repository supports knowledge sharing, academic
+        discovery and the preservation of institutional work
+        for current and future users.
+      </p>
+
+    </div>
+
+
+    <div class="kptm-about-contact">
+
+      <h2 id="contact-information">
+        Contact Information
+      </h2>
+
+      <p>
+        Any correspondence concerning this repository should be
+        sent to
+        <a href="mailto:{$config{adminemail}}">
+          <epc:print expr="$config{adminemail}" />
+        </a>.
+      </p>
+
+      <p class="kptm-about-system">
+        Repository platform:
+        <a href="{$config{rel_path}}/eprints/">
+          EPrints 3
+        </a>
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- ======================================================
+       CAMPUS / LIBRARY PHOTO CAROUSEL
+       ====================================================== -->
+
+  <section class="kptm-about-gallery">
+
+    <div class="kptm-showcase-heading">
+
+      <span class="kptm-showcase-eyebrow">
+        INSIDE KPTM BATU PAHAT
+      </span>
+
+      <h2>
+        More Than a Library
+      </h2>
+
+      <p>
+        A glimpse into the spaces, creativity and identity
+        of the KPTM Batu Pahat learning environment.
+      </p>
+
+    </div>
+
+
+    <div
+  class="kptm-carousel"
+  id="kptm-library-carousel">
+
+      <button
+        type="button"
+        class="kptm-carousel-arrow kptm-carousel-prev"
+        aria-label="Previous photo">
+        &#10094;
+      </button>
+
+
+      <div class="kptm-carousel-track">
+
+        <figure class="kptm-carousel-slide is-active">
+
+          <img
+            src="{$config{rel_path}}/images/kptm-library-petronas.jpeg"
+            alt="Petronas Twin Towers creative display inside the KPTM Batu Pahat Library"
+          />
+
+          <figcaption>
+            <strong>Creativity &amp; Identity</strong>
+            <span>
+              Malaysian identity and creative expression
+              within the Al-Farabi Library.
+            </span>
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="kptm-carousel-slide">
+
+          <img
+            src="{$config{rel_path}}/images/kptm-library-shelves.jpeg"
+            alt="Bookshelves inside the KPTM Batu Pahat Library"
+          />
+
+          <figcaption>
+            <strong>Our Library</strong>
+            <span>
+              Spaces dedicated to reading, knowledge and discovery.
+            </span>
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="kptm-carousel-slide">
+
+          <img
+            src="{$config{rel_path}}/images/kptm-library-study.jpeg"
+            alt="Study area inside the KPTM Batu Pahat Library"
+          />
+
+          <figcaption>
+            <strong>Learning Spaces</strong>
+            <span>
+              Comfortable spaces for study, collaboration
+              and reflection.
+            </span>
+          </figcaption>
+
+        </figure>
+
+
+        <figure class="kptm-carousel-slide">
+
+          <img
+            src="{$config{rel_path}}/images/kptm-library-art.jpeg"
+            alt="Creative artwork displayed inside the KPTM Batu Pahat Library"
+          />
+
+          <figcaption>
+            <strong>Campus Creativity</strong>
+            <span>
+              Art, culture and creativity form part of
+              our learning environment.
+            </span>
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+
+      <button
+        type="button"
+        class="kptm-carousel-arrow kptm-carousel-next"
+        aria-label="Next photo">
+        &#10095;
+      </button>
+
+
+      <div class="kptm-carousel-dots"
+           aria-label="Choose gallery photo">
+
+        <button
+          type="button"
+          class="kptm-carousel-dot is-active"
+          aria-label="Photo 1">
+        </button>
+
+        <button
+          type="button"
+          class="kptm-carousel-dot"
+          aria-label="Photo 2">
+        </button>
+
+        <button
+          type="button"
+          class="kptm-carousel-dot"
+          aria-label="Photo 3">
+        </button>
+
+        <button
+          type="button"
+          class="kptm-carousel-dot"
+          aria-label="Photo 4">
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+<script type="text/javascript">
+//<![CDATA[
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var carousel =
+        document.getElementById("kptm-library-carousel");
+
+    if (!carousel) {
+        return;
+    }
+
+    var slides =
+        carousel.querySelectorAll(".kptm-carousel-slide");
+
+    var prevButton =
+        carousel.querySelector(".kptm-carousel-prev");
+
+    var nextButton =
+        carousel.querySelector(".kptm-carousel-next");
+
+    var dots =
+        carousel.querySelectorAll(".kptm-carousel-dot");
+
+    var currentSlide = 0;
+
+
+    function showSlide(index) {
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        for (var i = 0; i < slides.length; i++) {
+
+            slides[i].classList.remove("is-active");
+            dots[i].classList.remove("is-active");
+
+        }
+
+        slides[index].classList.add("is-active");
+        dots[index].classList.add("is-active");
+
+        currentSlide = index;
+    }
+
+
+    prevButton.addEventListener("click", function () {
+        showSlide(currentSlide - 1);
+    });
+
+
+    nextButton.addEventListener("click", function () {
+        showSlide(currentSlide + 1);
+    });
+
+
+    for (var i = 0; i < dots.length; i++) {
+
+        (function (index) {
+
+            dots[index].addEventListener(
+                "click",
+                function () {
+                    showSlide(index);
+                }
+            );
+
+        })(i);
+
+    }
+
+
+    carousel.setAttribute("tabindex", "0");
+
+    carousel.addEventListener("keydown", function (event) {
+
+        if (event.key === "ArrowLeft") {
+            showSlide(currentSlide - 1);
+        }
+
+        if (event.key === "ArrowRight") {
+            showSlide(currentSlide + 1);
+        }
+
+    });
+
+
+    showSlide(0);
+
+});
+
+//]]>
+</script>
+</xpage:body>
+</xpage:page>

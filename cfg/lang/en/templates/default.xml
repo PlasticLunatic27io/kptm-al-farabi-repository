@@ -1,0 +1,534 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html SYSTEM "entities.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="en"
+  lang="en"
+  xmlns:epc="http://eprints.org/ep3/control">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <title>
+    <epc:pin ref="title" textonly="yes"/> -
+    <epc:phrase ref="archive_name"/>
+  </title>
+
+  <link rel="icon"
+        href="{$config{rel_path}}/favicon.ico"
+        type="image/x-icon"/>
+
+  <link rel="shortcut icon"
+        href="{$config{rel_path}}/favicon.ico"
+        type="image/x-icon"/>
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="{$config{rel_path}}/style/auto.css"/>
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="{$config{rel_path}}/style/auto/zzz_local.css?v=16"/>
+
+  <epc:pin ref="head"/>
+</head>
+
+<body>
+
+<epc:pin ref="pagetop"/>
+
+<div id="wrapper">
+
+  <!-- ====================================================== -->
+  <!-- KPTM HEADER                                           -->
+  <!-- ====================================================== -->
+
+  <header class="kptm-site-header">
+
+  <!-- ====================================================== -->
+  <!-- HERO / BRANDING HEADER                                -->
+  <!-- ====================================================== -->
+
+  <div class="kptm-hero-header">
+
+  <!-- Campus background is handled by CSS -->
+
+  <div class="kptm-hero-shade"></div>
+
+  <div class="kptm-hero-content">
+
+    <!-- KPTM LOGO -->
+
+    <div class="kptm-hero-logo-wrap">
+      <img
+        src="{$config{rel_path}}/images/kptm-logo.png"
+        alt="Kolej Poly-Tech MARA Batu Pahat"
+        class="kptm-hero-logo"
+      />
+    </div>
+
+
+    <!-- DIVIDER -->
+
+    <div class="kptm-hero-divider"></div>
+
+
+    <!-- REPOSITORY BRANDING -->
+
+    <div class="kptm-hero-branding">
+
+      <div class="kptm-hero-campus">
+        <span class="kptm-red">KPTM</span>
+        <span>BATU PAHAT</span>
+      </div>
+
+      <div class="kptm-hero-title">
+        AL-FARABI LIBRARY REPOSITORY
+      </div>
+
+      <div class="kptm-hero-tagline">
+        Preserving Knowledge. Inspiring Futures.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- STAFF ACCOUNT -->
+
+  <div class="kptm-header-account">
+
+    <span class="kptm-staff-icon">
+      ♙
+    </span>
+
+    <span class="kptm-staff-label">
+      Staff Login
+    </span>
+
+    <span class="kptm-staff-login">
+      <epc:pin ref="login_status"/>
+    </span>
+
+  </div>
+
+</div>
+
+
+  <!-- ====================================================== -->
+  <!-- NAVIGATION                                            -->
+  <!-- ====================================================== -->
+
+  <div class="kptm-navbar">
+
+    <nav
+      class="kptm-main-nav"
+      aria-label="Main Navigation">
+
+      <ul class="kptm-nav-links">
+
+        <li>
+          <a href="{$config{rel_path}}/">
+            <span class="kptm-nav-home-icon">⌂</span>
+            Home
+          </a>
+        </li>
+
+        <li>
+          <a href="{$config{rel_path}}/information.html">
+            About
+          </a>
+        </li>
+
+
+        <!-- BROWSE DROPDOWN -->
+
+        <li class="kptm-nav-dropdown">
+
+          <a href="{$config{rel_path}}/view/">
+            Browse
+            <span class="kptm-nav-arrow">⌄</span>
+          </a>
+
+          <ul class="kptm-dropdown-menu">
+
+            <li>
+              <a href="{$config{rel_path}}/view/subjects/">
+
+                <span class="kptm-dropdown-icon">
+                  ◎
+                </span>
+
+                <span class="kptm-dropdown-copy">
+                  <strong>
+                    By Subject
+                  </strong>
+
+                  <small>
+                    Explore academic disciplines
+                  </small>
+                </span>
+
+              </a>
+            </li>
+
+
+            <li>
+              <a href="{$config{rel_path}}/view/type/">
+
+                <span class="kptm-dropdown-icon">
+                  ▦
+                </span>
+
+                <span class="kptm-dropdown-copy">
+                  <strong>
+                    By Item Type
+                  </strong>
+
+                  <small>
+                    Thesis, articles, exams and more
+                  </small>
+                </span>
+
+              </a>
+            </li>
+
+             <!-- BY AUTHOR -->
+  <li>
+    <a href="{$config{rel_path}}/view/author/">
+
+      <span class="kptm-dropdown-icon">
+        ♙
+      </span>
+
+      <span class="kptm-dropdown-copy">
+        <strong>By Author</strong>
+        <small>Discover works by contributor</small>
+      </span>
+
+    </a>
+  </li>
+
+
+  <!-- BY YEAR -->
+  <li>
+    <a href="{$config{rel_path}}/view/year/">
+
+      <span class="kptm-dropdown-icon">
+        ◷
+      </span>
+
+      <span class="kptm-dropdown-copy">
+        <strong>By Year</strong>
+        <small>Explore works chronologically</small>
+      </span>
+
+    </a>
+  </li>
+
+          </ul>
+
+        </li>
+
+
+        <li>
+          <a href="{$config{rel_cgipath}}/search/advanced">
+            Advanced Search
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <!-- ====================================================== -->
+    <!-- NAVBAR SEARCH                                         -->
+    <!-- ====================================================== -->
+
+    <form
+      method="get"
+      accept-charset="utf-8"
+      action="{$config{rel_cgipath}}/search"
+      class="kptm-nav-search"
+      role="search"
+      aria-label="Repository search">
+
+      <input
+        type="text"
+        name="q"
+        class="kptm-search-input"
+        placeholder="Search the repository..."
+        aria-label="Search the repository"
+      />
+
+      <input
+        type="hidden"
+        name="_action_search"
+        value="Search"
+      />
+
+      <input
+        type="hidden"
+        name="_order"
+        value="bytitle"
+      />
+
+      <input
+        type="hidden"
+        name="basic_srchtype"
+        value="ALL"
+      />
+
+      <input
+        type="hidden"
+        name="_satisfyall"
+        value="ALL"
+      />
+
+      <button
+        type="submit"
+        class="kptm-search-button"
+        aria-label="Search repository">
+        ⌕
+      </button>
+
+    </form>
+
+  </div>
+
+</header>
+     
+
+
+  <!-- ====================================================== -->
+  <!-- MAIN CONTENT                                          -->
+  <!-- ====================================================== -->
+
+  <main id="main_content">
+
+    <div class="ep_tm_page_content">
+
+      <h1
+        id="page-title"
+        class="ep_tm_pagetitle">
+
+        <epc:pin ref="title"/>
+
+      </h1>
+
+      <epc:pin ref="page"/>
+
+    </div>
+
+  </main>
+
+
+  <!-- ====================================================== -->
+  <!-- FOOTER                                                -->
+  <!-- ====================================================== -->
+
+  <footer class="kptm-footer ep_noprint">
+
+    <div class="kptm-footer-grid">
+
+      <div class="kptm-footer-about">
+
+        <strong>
+          KPTM Batu Pahat Repository
+        </strong>
+
+        <p>
+          Preserving and sharing academic knowledge,
+          research and institutional materials from
+          the KPTM Batu Pahat community.
+        </p>
+
+      </div>
+
+
+      <div class="kptm-footer-links">
+
+        <strong>
+          Repository
+        </strong>
+
+        <ul>
+
+          <li>
+            <a href="{$config{rel_path}}/view/">
+              Browse
+            </a>
+          </li>
+
+          <li>
+            <a href="{$config{rel_cgipath}}/search/advanced">
+              Advanced Search
+            </a>
+          </li>
+
+          <li>
+            <a href="{$config{rel_path}}/information.html">
+              About
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="kptm-footer-system">
+
+        <strong>
+          Repository System
+        </strong>
+
+        <p>
+          Powered by EPrints 3.4
+        </p>
+
+        <a
+          href="https://eprints.org/software/"
+          rel="external">
+
+          <img
+            src="{$config{rel_path}}/images/eprintslogo.png"
+            alt="EPrints"
+            class="kptm-eprints-logo"
+          />
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="kptm-footer-bottom">
+
+      <span>
+        &#169; KPTM Batu Pahat
+      </span>
+
+      <span>
+        Library Repository
+      </span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+
+    var path = window.location.pathname;
+
+    var links = document.querySelectorAll(
+        ".kptm-nav-links > li > a"
+    );
+
+    links.forEach(function (link) {
+
+        var href = link.getAttribute("href");
+
+        if (!href) return;
+
+        var active = false;
+
+        /* Home */
+        if (
+            href === "/" &&
+            (path === "/" || path === "/index.html")
+        ) {
+            active = true;
+        }
+
+        /* About */
+        else if (
+            href.indexOf("information") !== -1 &&
+            path.indexOf("information") !== -1
+        ) {
+            active = true;
+        }
+
+        /* Browse and all browse sub-pages */
+        else if (
+            href.indexOf("/view") !== -1 &&
+            path.indexOf("/view/") === 0
+        ) {
+            active = true;
+        }
+
+        /* Advanced Search */
+        else if (
+            href.indexOf("/cgi/search/advanced") !== -1 &&
+            path.indexOf("/cgi/search/advanced") === 0
+        ) {
+            active = true;
+        }
+
+        if (active) {
+            link.classList.add("is-active");
+        }
+
+    });
+
+});
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+
+    var dropdown = document.querySelector(".kptm-nav-dropdown");
+
+    if (!dropdown) {
+        return;
+    }
+
+    var closeTimer = null;
+
+    function openDropdown() {
+        if (closeTimer) {
+            clearTimeout(closeTimer);
+            closeTimer = null;
+        }
+
+        dropdown.classList.add("is-open");
+    }
+
+    function scheduleClose() {
+        if (closeTimer) {
+            clearTimeout(closeTimer);
+        }
+
+        closeTimer = setTimeout(function () {
+            dropdown.classList.remove("is-open");
+        }, 100);
+    }
+
+    dropdown.addEventListener("mouseenter", openDropdown);
+    dropdown.addEventListener("mouseleave", scheduleClose);
+
+    var menu = dropdown.querySelector(".kptm-dropdown-menu");
+
+    if (menu) {
+        menu.addEventListener("mouseenter", openDropdown);
+        menu.addEventListener("mouseleave", scheduleClose);
+    }
+
+});
+// ]]>
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE phrases SYSTEM "entities.dtd">
+
+<phrases xmlns="http://eprints.org/ep3/phrase"
+         xmlns:epp="http://eprints.org/ep3/phrase"
+         xmlns:epc="http://eprints.org/ep3/control">
+
+  <!-- ====================================================== -->
+  <!-- LOGIN                                                  -->
+  <!-- ====================================================== -->
+
+  <epp:phrase id="dynamic:not_logged_in">
+    <a href="{$config{userhome}}">Login</a>
+  </epp:phrase>
+
+
+  <!-- ====================================================== -->
+  <!-- BROWSE LANDING PAGE                                    -->
+  <!-- ====================================================== -->
+
+  <epp:phrase id="bin/generate_views:browsetitle">
+    Explore the Repository
+  </epp:phrase>
+
+  <epp:phrase id="bin/generate_views:browseintro">
+
+    <div class="kptm-browse-intro">
+
+      <p class="kptm-browse-eyebrow">
+        DISCOVER KPTM KNOWLEDGE
+      </p>
+
+      <p class="kptm-browse-description">
+        Explore academic works, student projects and institutional
+        materials using the category that suits you best.
+      </p>
+
+    </div>
+
+  </epp:phrase>
+
+
+  <!-- ====================================================== -->
+  <!-- BROWSE VIEW NAMES                                      -->
+  <!-- ====================================================== -->
+
+  <epp:phrase id="viewname_eprint_type">
+    Item Type
+  </epp:phrase>
+
+  <epp:phrase id="viewname_eprint_subjects">
+    Subject
+  </epp:phrase>
+
+  <epp:phrase id="viewname_eprint_author">
+    Author
+  </epp:phrase>
+
+  <epp:phrase id="viewname_eprint_year">
+    Year
+  </epp:phrase>
+
+  <epp:phrase id="viewname_eprint_programme">
+    Programme
+  </epp:phrase>
+   
+  <epp:phrase id="cgi/advsearch:preamble">
+    <p class="kptm-advanced-search-intro">
+      Use the filters below to refine your search.
+      For a quick search, return to the
+      <a href="{$config{rel_path}}/">repository homepage</a>.
+    </p>
+  </epp:phrase>
+<!-- ====================================================== -->
+<!-- KPTM STAFF LOGIN                                       -->
+<!-- ====================================================== -->
+
+<epp:phrase id="cgi/login:page_layout">
+
+  <epc:pin name="problems"/>
+
+  <div class="kptm-login-shell">
+
+    <div class="kptm-login-header">
+
+      <p class="kptm-login-eyebrow">
+        KPTM BATU PAHAT
+      </p>
+
+      <h2 class="kptm-login-title">
+        Staff Repository Access
+      </h2>
+
+      <p class="kptm-login-subtitle">
+        Sign in to manage repository content and administrative tasks.
+      </p>
+
+    </div>
+
+
+    <div class="kptm-login-form">
+
+      <div class="kptm-login-field">
+
+        <label for="login_username">
+          Username
+        </label>
+
+        <div class="kptm-login-input">
+          <epc:pin name="input_username"/>
+        </div>
+
+      </div>
+
+
+      <div class="kptm-login-field">
+
+        <label for="login_password">
+          Password
+        </label>
+
+        <div class="kptm-login-input">
+          <epc:pin name="input_password"/>
+        </div>
+
+      </div>
+
+
+      <div class="kptm-login-submit">
+        <epc:pin name="login_button"/>
+      </div>
+
+
+      <div class="kptm-login-reset">
+        <epc:pin name="reset_link"/>
+      </div>
+
+
+      <div class="kptm-login-security">
+        <strong>Secure staff access</strong>
+        <span>
+          Authorised KPTM Batu Pahat repository staff only.
+          Cookies must be enabled to sign in.
+        </span>
+      </div>
+
+    </div>
+
+  </div>
+
+</epp:phrase>
+
+</phrases>
