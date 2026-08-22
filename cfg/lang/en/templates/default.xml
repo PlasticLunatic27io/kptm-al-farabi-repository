@@ -10,6 +10,8 @@
 <head>
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>
     <epc:pin ref="title" textonly="yes"/> -
     <epc:phrase ref="archive_name"/>
@@ -29,7 +31,12 @@
 
   <link rel="stylesheet"
         type="text/css"
-        href="{$config{rel_path}}/style/auto/zzz_local.css?v=16"/>
+        href="{$config{rel_path}}/style/auto/zzz_local.css?v=27"/>
+
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="{$config{rel_path}}/style/auto/zzz_account.css?v=1"/>
 
   <epc:pin ref="head"/>
 </head>
@@ -37,6 +44,12 @@
 <body>
 
 <epc:pin ref="pagetop"/>
+
+<!-- ======================================================
+     LOGGED-IN STAFF / PUBLIC MODE SWITCH
+     ====================================================== -->
+
+<div id="kptm-public-mode-mount"></div>
 
 <div id="wrapper">
 
@@ -98,21 +111,8 @@
 
   <!-- STAFF ACCOUNT -->
 
-  <div class="kptm-header-account">
-
-    <span class="kptm-staff-icon">
-      ♙
-    </span>
-
-    <span class="kptm-staff-label">
-      Staff Login
-    </span>
-
-    <span class="kptm-staff-login">
-      <epc:pin ref="login_status"/>
-    </span>
-
-  </div>
+  <!-- LOGGED-IN STAFF IDENTITY -->
+<div id="kptm-public-identity-mount"></div>
 
 </div>
 
@@ -297,10 +297,40 @@
 
     </form>
 
+<div class="kptm-language-switcher">
+
+  <button
+    type="button"
+    class="kptm-language-button"
+    aria-haspopup="true"
+    aria-expanded="false">
+
+    <span class="kptm-language-globe">🌐</span>
+    <span class="kptm-language-current">English</span>
+    <span class="kptm-language-arrow">⌄</span>
+
+  </button>
+
+  <div class="kptm-language-menu">
+
+    <a
+      href="{$config{rel_cgipath}}/set_lang?lang=en&amp;referrer={$config{base_url}}">
+      English
+    </a>
+
+    <a
+      href="{$config{rel_cgipath}}/set_lang?lang=ms&amp;referrer={$config{base_url}}">
+      Bahasa Melayu
+    </a>
+
+  </div>
+
+</div>
+
   </div>
 
 </header>
-     
+
 
 
   <!-- ====================================================== -->
@@ -528,7 +558,357 @@ document.addEventListener("DOMContentLoaded", function () {
 // ]]>
 </script>
 
+<script type="text/javascript">
+// <![CDATA[
 
+document.addEventListener("DOMContentLoaded", function () {
+
+    var languageSwitcher =
+        document.querySelector(".kptm-language-switcher");
+
+    if (!languageSwitcher) {
+        return;
+    }
+
+    var button =
+        languageSwitcher.querySelector(".kptm-language-button");
+
+    var menu =
+        languageSwitcher.querySelector(".kptm-language-menu");
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        var isOpen =
+            languageSwitcher.classList.toggle("is-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+    document.addEventListener("click", function () {
+
+        languageSwitcher.classList.remove("is-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var modeMount =
+        document.getElementById("kptm-public-mode-mount");
+
+    var identityMount =
+        document.getElementById("kptm-public-identity-mount");
+
+
+    /*
+     * Detect which public template is being displayed.
+     */
+    var htmlLang =
+        (
+            document.documentElement.getAttribute("lang")
+            || "en"
+        ).toLowerCase();
+
+    var isMalay =
+        htmlLang.indexOf("ms") === 0;
+
+
+    var text = isMalay
+        ? {
+            viewMode: "MOD PAPARAN",
+            workspace: "Ruang Kerja",
+            publicView: "Awam",
+            hi: "Hai",
+            staff: "Staf",
+            admin: "Pentadbir Teknikal",
+            workspaceTitle: "Tukar ke Ruang Kerja Staf"
+        }
+        : {
+            viewMode: "VIEW MODE",
+            workspace: "Workspace",
+            publicView: "Public",
+            hi: "Hi",
+            staff: "Staff",
+            admin: "Technical Admin",
+            workspaceTitle: "Switch to Staff Workspace"
+        };
+
+
+    /*
+     * Build the public Workspace/Public switch.
+     */
+    function renderModeSwitch()
+    {
+        if (!modeMount) {
+            return;
+        }
+
+        var control =
+            document.createElement("div");
+
+        control.className =
+            "kptm-public-mode-control";
+
+        control.setAttribute(
+            "aria-label",
+            isMalay
+                ? "Mod antara muka"
+                : "Interface mode"
+        );
+
+
+        var eyebrow =
+            document.createElement("div");
+
+        eyebrow.className =
+            "kptm-mode-eyebrow";
+
+        eyebrow.textContent =
+            text.viewMode;
+
+
+        var segmented =
+            document.createElement("div");
+
+        segmented.className =
+            "kptm-mode-segmented";
+
+
+        /*
+         * Workspace
+         */
+        var workspace =
+            document.createElement("a");
+
+        workspace.href =
+            "/cgi/users/home";
+
+        workspace.className =
+            "kptm-mode-choice";
+
+        workspace.title =
+            text.workspaceTitle;
+
+
+        var power =
+            document.createElement("span");
+
+        power.className =
+            "kptm-mode-power";
+
+        power.textContent =
+            "●";
+
+
+        workspace.appendChild(power);
+        workspace.appendChild(
+            document.createTextNode(
+                text.workspace
+            )
+        );
+
+
+        /*
+         * Public = active
+         */
+        var publicChoice =
+            document.createElement("span");
+
+        publicChoice.className =
+            "kptm-mode-choice is-active";
+
+        publicChoice.setAttribute(
+            "aria-current",
+            "page"
+        );
+
+
+        var indicator =
+            document.createElement("span");
+
+        indicator.className =
+            "kptm-mode-indicator";
+
+
+        publicChoice.appendChild(indicator);
+
+        publicChoice.appendChild(
+            document.createTextNode(
+                text.publicView
+            )
+        );
+
+
+        segmented.appendChild(workspace);
+        segmented.appendChild(publicChoice);
+
+        control.appendChild(eyebrow);
+        control.appendChild(segmented);
+
+        modeMount.replaceChildren(control);
+    }
+
+
+    /*
+     * Build:
+     *
+     * Hi, username
+     * Technical Admin / Staff
+     */
+    function renderIdentity(data)
+    {
+        if (!identityMount) {
+            return;
+        }
+
+        var chip =
+            document.createElement("a");
+
+        chip.href =
+            "/cgi/users/home?screen=User::View";
+
+        chip.className =
+            "kptm-user-chip";
+
+
+        var hello =
+            document.createElement("span");
+
+        hello.className =
+            "kptm-user-chip-hello";
+
+        hello.textContent =
+            text.hi + ", " + data.username;
+
+
+        var role =
+            document.createElement("span");
+
+        role.className =
+            "kptm-user-chip-role";
+
+        role.textContent =
+            data.usertype === "admin"
+                ? text.admin
+                : text.staff;
+
+
+        chip.appendChild(hello);
+        chip.appendChild(role);
+
+        identityMount.replaceChildren(chip);
+    }
+
+
+    /*
+     * Ask the AUTHENTICATED EPrints users area
+     * who the current browser user is.
+     */
+    fetch(
+        "/cgi/kptm_identity",
+        {
+            credentials: "same-origin",
+            cache: "no-store"
+        }
+    )
+    .then(function (response) {
+
+        /*
+         * Anonymous users may be redirected to the
+         * normal EPrints login screen.
+         *
+         * In that case the response will be HTML,
+         * not our JSON endpoint.
+         */
+        var contentType =
+            response.headers.get("content-type")
+            || "";
+
+        if (
+            !response.ok ||
+            contentType.indexOf("application/json") === -1
+        ) {
+            throw new Error(
+                "No authenticated staff session"
+            );
+        }
+
+        return response.json();
+    })
+    .then(function (data) {
+
+    /*
+     * Logged-in Staff / Technical Admin
+     */
+    if (
+        data.logged_in &&
+        data.staff_access
+    ) {
+        renderModeSwitch();
+        renderIdentity(data);
+        return;
+    }
+
+
+    /*
+     * Anonymous visitor
+     *
+     * No Workspace/Public switch.
+     * Show only a normal Staff Login button.
+     */
+    if (identityMount) {
+
+        var login =
+            document.createElement("a");
+
+        login.href =
+            "/cgi/users/login";
+
+        login.className =
+            "kptm-public-staff-login";
+
+        login.textContent =
+            isMalay
+                ? "Log Masuk Staf"
+                : "Staff Login";
+
+        identityMount.replaceChildren(login);
+    }
+
+})
+    .catch(function () {
+
+        /*
+         * Anonymous public visitor.
+         *
+         * Deliberately render nothing:
+         * no Workspace switch
+         * no staff identity.
+         */
+    });
+
+});
+
+// ]]>
+</script>
 
 </body>
 </html>

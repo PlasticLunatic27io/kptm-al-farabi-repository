@@ -1,0 +1,641 @@
+/* =========================================================
+   KPTM AL-FARABI REPOSITORY
+   MANUAL STAFF WORKSPACE
+   ========================================================= */
+
+
+/* ---------------------------------------------------------
+   FOUNDATION
+   --------------------------------------------------------- */
+
+html,
+body.kptm-staff-page {
+    margin: 0;
+    min-height: 100%;
+}
+
+body.kptm-staff-page {
+    background: #f5f7fa;
+    color: #263f55;
+}
+
+
+/* Kill the old public/full-width wrapper behaviour */
+
+body.kptm-staff-page #wrapper {
+    width: auto !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   APPLICATION SHELL
+   --------------------------------------------------------- */
+
+.kptm-staff-shell {
+    min-height: 100vh;
+    background: #f5f7fa;
+}
+
+
+/* ---------------------------------------------------------
+   TOP BAR
+   --------------------------------------------------------- */
+
+.kptm-staff-topbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 28px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #dce5ed;
+}
+
+
+.kptm-staff-brand-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    color: #173f63 !important;
+    text-decoration: none !important;
+}
+
+
+.kptm-staff-brand-mark {
+    width: 42px;
+    height: 42px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    border-radius: 10px;
+
+    background: #17639a;
+
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+}
+
+
+.kptm-staff-brand-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+
+.kptm-staff-brand-copy strong {
+    color: #163f61;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+
+.kptm-staff-brand-copy small {
+    color: #708395;
+    font-size: 12px;
+}
+
+
+.kptm-staff-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+
+.kptm-staff-public-link {
+    color: #17639a !important;
+    font-size: 13px;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+
+.kptm-staff-public-link:hover {
+    text-decoration: underline !important;
+}
+
+
+.kptm-staff-language {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    color: #9aa9b5;
+
+    font-size: 12px;
+}
+
+
+.kptm-staff-language a {
+    color: #718394 !important;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+
+.kptm-staff-language a.is-current {
+    color: #17639a !important;
+}
+
+
+/* ---------------------------------------------------------
+   MAIN LAYOUT
+   --------------------------------------------------------- */
+
+.kptm-staff-layout {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+
+    min-height: calc(100vh - 73px);
+}
+
+/* =========================================================
+   STAFF ↔ PUBLIC MODE SWITCH
+   ========================================================= */
+
+.kptm-staff-mode-control {
+
+    position: sticky;
+    top: 0;
+
+    z-index: 20;
+
+    margin: 0 0 18px;
+
+    padding: 4px 4px 14px;
+
+    background: #ffffff;
+
+    border-bottom: 1px solid #e3eaf0;
+}
+
+
+.kptm-staff-mode-label {
+
+    margin: 0 4px 8px;
+
+    color: #8497a6;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: .13em;
+
+    text-transform: uppercase;
+}
+
+
+.kptm-staff-mode-switch {
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 3px;
+
+    padding: 4px;
+
+    background: #edf3f7;
+
+    border: 1px solid #d8e3eb;
+    border-radius: 10px;
+}
+
+
+.kptm-staff-mode-option {
+
+    min-height: 39px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 0 7px;
+
+    box-sizing: border-box;
+
+    border-radius: 7px;
+
+    color: #607789 !important;
+
+    font-size: 11px;
+    font-weight: 750;
+
+    text-align: center;
+
+    text-decoration: none !important;
+
+    transition:
+        background .15s ease,
+        color .15s ease,
+        box-shadow .15s ease;
+}
+
+
+a.kptm-staff-mode-option:hover {
+
+    color: #155c8f !important;
+
+    background: rgba(255,255,255,.65);
+}
+
+
+.kptm-staff-mode-option.is-active {
+
+    background: #ffffff;
+
+    color: #10598b !important;
+
+    box-shadow:
+        0 1px 4px rgba(23,63,94,.14);
+}
+
+
+.kptm-staff-mode-light {
+
+    width: 7px;
+    height: 7px;
+
+    flex: 0 0 7px;
+
+    border-radius: 50%;
+
+    background: #17639a;
+
+    box-shadow:
+        0 0 0 3px rgba(23,99,154,.12);
+}
+
+/* ---------------------------------------------------------
+   SIDEBAR
+   --------------------------------------------------------- */
+
+.kptm-staff-sidebar {
+    position: sticky;
+    top: 73px;
+
+    align-self: start;
+
+    height: calc(100vh - 73px);
+
+    box-sizing: border-box;
+
+    padding: 22px 14px;
+
+    overflow-y: auto;
+
+    background: #ffffff;
+
+    border-right: 1px solid #dce5ed;
+}
+
+
+.kptm-staff-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.kptm-staff-nav-item {
+    min-height: 46px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 0 14px;
+
+    box-sizing: border-box;
+
+    border-radius: 9px;
+
+    color: #405c72 !important;
+
+    font-size: 14px;
+    font-weight: 650;
+
+    text-decoration: none !important;
+
+    transition:
+        background .15s ease,
+        color .15s ease;
+}
+
+
+.kptm-staff-nav-item:hover {
+    background: #f1f6fa;
+
+    color: #155d91 !important;
+}
+
+
+.kptm-staff-nav-item.is-active {
+    background: #e9f2f8;
+
+    color: #0f5789 !important;
+
+    font-weight: 800;
+}
+
+
+.kptm-staff-nav-icon {
+    width: 22px;
+
+    flex: 0 0 22px;
+
+    color: #628199;
+
+    font-size: 18px;
+
+    text-align: center;
+}
+
+
+.kptm-staff-nav-item.is-active
+.kptm-staff-nav-icon {
+    color: #17639a;
+}
+
+
+.kptm-staff-nav-divider {
+    height: 1px;
+
+    margin: 12px 10px;
+
+    background: #e3eaf0;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT
+   --------------------------------------------------------- */
+
+.kptm-staff-content {
+    min-width: 0;
+
+    padding: 34px 38px 70px;
+
+    box-sizing: border-box;
+}
+
+
+.kptm-staff-page-heading {
+    width: min(1280px, 100%);
+
+    margin: 0 auto 22px;
+}
+
+
+.kptm-staff-page .ep_tm_pagetitle {
+    margin: 0 !important;
+
+    color: #173f63;
+
+    font-size: clamp(27px, 3vw, 36px);
+
+    font-weight: 800;
+
+    line-height: 1.2;
+}
+
+
+/* Important:
+   workspace itself is NOT another giant card */
+
+.kptm-staff-workspace {
+    width: min(1280px, 100%);
+
+    margin: 0 auto;
+}
+
+
+/*
+   Critical fix:
+   EPrints may generate .ep_tm_main internally.
+   It must behave as a plain workspace, not another
+   white rounded container.
+*/
+
+.kptm-staff-page .ep_tm_main {
+    width: 100% !important;
+    max-width: none !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    box-sizing: border-box;
+
+    background: transparent !important;
+
+    border: 0 !important;
+    border-radius: 0 !important;
+
+    box-shadow: none !important;
+}
+
+
+/* ---------------------------------------------------------
+   STANDARD EPRINTS FORM CONTROLS
+   --------------------------------------------------------- */
+
+.kptm-staff-page input[type="text"],
+.kptm-staff-page input[type="search"],
+.kptm-staff-page input[type="email"],
+.kptm-staff-page input[type="password"],
+.kptm-staff-page input[type="number"],
+.kptm-staff-page textarea,
+.kptm-staff-page select {
+    min-height: 42px;
+
+    padding: 9px 12px;
+
+    box-sizing: border-box;
+
+    background: #ffffff;
+
+    border: 1px solid #c9d8e4;
+    border-radius: 8px;
+
+    color: #253f55;
+
+    font: inherit;
+}
+
+
+.kptm-staff-page input:focus,
+.kptm-staff-page textarea:focus,
+.kptm-staff-page select:focus {
+    outline: 3px solid rgba(23, 99, 154, .12);
+    border-color: #17639a;
+}
+
+
+/* ---------------------------------------------------------
+   BUTTONS
+   --------------------------------------------------------- */
+
+.kptm-staff-page .ep_form_action_button,
+.kptm-staff-page input[type="submit"],
+.kptm-staff-page button {
+    min-height: 42px;
+
+    padding: 9px 16px !important;
+
+    border: 1px solid #15598c !important;
+    border-radius: 8px !important;
+
+    background: #15598c !important;
+
+    color: #ffffff !important;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+.kptm-staff-page .ep_form_action_button:hover,
+.kptm-staff-page input[type="submit"]:hover,
+.kptm-staff-page button:hover {
+    background: #104b77 !important;
+}
+
+
+/* ---------------------------------------------------------
+   TABLES
+   --------------------------------------------------------- */
+
+.kptm-staff-page table.ep_columns {
+    width: 100% !important;
+
+    margin: 18px 0 !important;
+
+    border-collapse: separate !important;
+    border-spacing: 0 !important;
+
+    background: #ffffff;
+
+    border: 1px solid #d8e2ea !important;
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+
+.kptm-staff-page .ep_columns_title {
+    padding: 12px 14px !important;
+
+    background: #edf3f7 !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #d6e1e9 !important;
+
+    color: #173f63 !important;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+
+.kptm-staff-page .ep_columns_cell {
+    padding: 13px 14px !important;
+
+    border: 0 !important;
+    border-bottom: 1px solid #e7edf2 !important;
+
+    color: #35536a;
+
+    vertical-align: middle;
+}
+
+
+.kptm-staff-page
+table.ep_columns
+tr:last-child td {
+    border-bottom: 0 !important;
+}
+
+
+/* ---------------------------------------------------------
+   RESPONSIVE
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .kptm-staff-layout {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+
+    .kptm-staff-content {
+        padding: 28px 24px 60px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .kptm-staff-topbar {
+        padding: 0 16px;
+    }
+
+    .kptm-staff-brand-copy small,
+    .kptm-staff-public-link {
+        display: none;
+    }
+
+    .kptm-staff-layout {
+        display: block;
+    }
+
+    .kptm-staff-sidebar {
+        position: static;
+
+        width: 100%;
+        height: auto;
+
+        padding: 10px;
+
+        border-right: 0;
+        border-bottom: 1px solid #dce5ed;
+    }
+
+    .kptm-staff-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .kptm-staff-nav-divider {
+        display: none;
+    }
+
+    .kptm-staff-content {
+        padding: 24px 16px 50px;
+    }
+
+}

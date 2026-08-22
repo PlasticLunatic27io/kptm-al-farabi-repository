@@ -1,0 +1,99 @@
+#!/usr/bin/perl
+
+use strict;
+use warnings;
+
+use EPrints;
+use JSON::PP qw( encode_json );
+
+my $eprints = EPrints->new;
+my $repo = $eprints->current_repository;
+
+exit 0 unless defined $repo;
+
+# ============================================================
+# KPTM PUBLIC SESSION IDENTITY
+#
+# IMPORTANT:
+# This CGI is PUBLIC.
+# It must never trigger /cgi/users authentication.
+#
+# We explicitly inspect the existing EPrints login cookie.
+# ============================================================
+
+my $user;
+
+eval
+{
+    $user =
+        $repo->_current_user_auth_cookie;
+};
+
+$repo->send_http_header(
+    content_type => "application/json; charset=UTF-8"
+);
+
+
+# ------------------------------------------------------------
+# Anonymous visitor
+# ------------------------------------------------------------
+
+if( !defined $user )
+{
+    print encode_json({
+        logged_in    => JSON::PP::false,
+        staff_access => JSON::PP::false,
+    });
+
+    exit;
+}
+
+
+# ------------------------------------------------------------
+# Existing EPrints user
+# ------------------------------------------------------------
+
+my $username =
+    $user->value( "username" ) // "";
+
+my $usertype =
+    $user->value( "usertype" ) // "";
+
+
+my $staff_access =
+       $usertype eq "editor"
+    || $usertype eq "admin";
+
+
+my $role =
+      $usertype eq "admin"
+    ? "technical_admin"
+
+    : $usertype eq "editor"
+    ? "staff"
+
+    : "other";
+
+
+print encode_json({
+
+    logged_in =>
+        JSON::PP::true,
+
+    staff_access =>
+        $staff_access
+        ? JSON::PP::true
+        : JSON::PP::false,
+
+    username =>
+        $username,
+
+    usertype =>
+        $usertype,
+
+    role =>
+        $role,
+
+});
+
+exit;

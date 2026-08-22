@@ -1,0 +1,913 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html SYSTEM "entities.dtd">
+
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xml:lang="ms"
+  lang="ms"
+  xmlns:epc="http://eprints.org/ep3/control">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+
+  <title>
+    <epc:pin ref="title" textonly="yes"/> -
+    <epc:phrase ref="archive_name"/>
+  </title>
+
+  <link rel="icon"
+        href="{$config{rel_path}}/favicon.ico"
+        type="image/x-icon"/>
+
+  <link rel="shortcut icon"
+        href="{$config{rel_path}}/favicon.ico"
+        type="image/x-icon"/>
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="{$config{rel_path}}/style/auto.css"/>
+
+  <link rel="stylesheet"
+        type="text/css"
+        href="{$config{rel_path}}/style/auto/zzz_local.css?v=27"/>
+  
+  <link
+  rel="stylesheet"
+  type="text/css"
+  href="{$config{rel_path}}/style/auto/zzz_account.css?v=1"/>
+
+  <epc:pin ref="head"/>
+</head>
+
+<body>
+
+<epc:pin ref="pagetop"/>
+
+<!-- ======================================================
+     SUIS MOD RUANG KERJA / AWAM
+     ====================================================== -->
+<div id="kptm-public-mode-mount"></div>
+
+<div id="wrapper">
+
+  <!-- ====================================================== -->
+  <!-- KPTM HEADER                                           -->
+  <!-- ====================================================== -->
+
+  <header class="kptm-site-header">
+
+  <!-- ====================================================== -->
+  <!-- HERO / BRANDING HEADER                                -->
+  <!-- ====================================================== -->
+
+  <div class="kptm-hero-header">
+
+  <!-- Campus background is handled by CSS -->
+
+  <div class="kptm-hero-shade"></div>
+
+  <div class="kptm-hero-content">
+
+    <!-- KPTM LOGO -->
+
+    <div class="kptm-hero-logo-wrap">
+      <img
+        src="{$config{rel_path}}/images/kptm-logo.png"
+        alt="Kolej Poly-Tech MARA Batu Pahat"
+        class="kptm-hero-logo"
+      />
+    </div>
+
+
+    <!-- DIVIDER -->
+
+    <div class="kptm-hero-divider"></div>
+
+
+    <!-- REPOSITORY BRANDING -->
+
+    <div class="kptm-hero-branding">
+
+      <div class="kptm-hero-campus">
+        <span class="kptm-red">KPTM</span>
+        <span>BATU PAHAT</span>
+      </div>
+
+      <div class="kptm-hero-title">
+        REPOSITORI PERPUSTAKAAN AL-FARABI
+      </div>
+
+      <div class="kptm-hero-tagline">
+        Memelihara Ilmu. Menginspirasi Masa Hadapan.
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- STAFF ACCOUNT -->
+
+  <!-- LOGGED-IN STAFF IDENTITY -->
+<div id="kptm-public-identity-mount"></div>
+
+</div>
+
+
+  <!-- ====================================================== -->
+  <!-- NAVIGATION                                            -->
+  <!-- ====================================================== -->
+
+  <div class="kptm-navbar">
+
+    <nav
+      class="kptm-main-nav"
+      aria-label="Main Navigation">
+
+      <ul class="kptm-nav-links">
+
+        <li>
+          <a href="{$config{rel_path}}/">
+            <span class="kptm-nav-home-icon">⌂</span>
+            Utama
+          </a>
+        </li>
+
+        <li>
+          <a href="{$config{rel_path}}/information.html">
+            Mengenai
+          </a>
+        </li>
+
+
+        <!-- BROWSE DROPDOWN -->
+
+        <li class="kptm-nav-dropdown">
+
+          <a href="{$config{rel_path}}/view/">
+            Layari
+            <span class="kptm-nav-arrow">⌄</span>
+          </a>
+
+          <ul class="kptm-dropdown-menu">
+
+            <li>
+              <a href="{$config{rel_path}}/view/subjects/">
+
+                <span class="kptm-dropdown-icon">
+                  ◎
+                </span>
+
+                <span class="kptm-dropdown-copy">
+                  <strong>
+                    Mengikut subjek
+                  </strong>
+
+                  <small>
+                    Terokai bidang akademik
+                  </small>
+                </span>
+
+              </a>
+            </li>
+
+
+            <li>
+              <a href="{$config{rel_path}}/view/type/">
+
+                <span class="kptm-dropdown-icon">
+                  ▦
+                </span>
+
+                <span class="kptm-dropdown-copy">
+                  <strong>
+                    Mengikut Jenis Item
+                  </strong>
+
+                  <small>
+                    Tesis, artikel, peperiksaan, dan banyak lagi
+                  </small>
+                </span>
+
+              </a>
+            </li>
+
+             <!-- BY AUTHOR -->
+  <li>
+    <a href="{$config{rel_path}}/view/author/">
+
+      <span class="kptm-dropdown-icon">
+        ♙
+      </span>
+
+      <span class="kptm-dropdown-copy">
+        <strong>Mengikut Pengarang</strong>
+        <small>Temui karya berdasarkan penyumbang</small>
+      </span>
+
+    </a>
+  </li>
+
+
+  <!-- BY YEAR -->
+  <li>
+    <a href="{$config{rel_path}}/view/year/">
+
+      <span class="kptm-dropdown-icon">
+        ◷
+      </span>
+
+      <span class="kptm-dropdown-copy">
+        <strong>Mengikut Tahun</strong>
+        <small>Terokai karya mengikut kronologi</small>
+      </span>
+
+    </a>
+  </li>
+
+          </ul>
+
+        </li>
+
+
+        <li>
+          <a href="{$config{rel_cgipath}}/search/advanced">
+            Carian Lanjutan
+          </a>
+        </li>
+
+      </ul>
+
+    </nav>
+
+
+    <!-- ====================================================== -->
+    <!-- NAVBAR SEARCH                                         -->
+    <!-- ====================================================== -->
+
+    <form
+      method="get"
+      accept-charset="utf-8"
+      action="{$config{rel_cgipath}}/search"
+      class="kptm-nav-search"
+      role="search"
+      aria-label="Carian repositori">
+
+      <input
+        type="text"
+        name="q"
+        class="kptm-search-input"
+        placeholder="Cari dalam repositori..."
+        aria-label="Cari dalam repositori"
+      />
+
+      <input
+        type="hidden"
+        name="_action_search"
+        value="Search"
+      />
+
+      <input
+        type="hidden"
+        name="_order"
+        value="bytitle"
+      />
+
+      <input
+        type="hidden"
+        name="basic_srchtype"
+        value="ALL"
+      />
+
+      <input
+        type="hidden"
+        name="_satisfyall"
+        value="ALL"
+      />
+
+      <button
+        type="submit"
+        class="kptm-search-button"
+        aria-label="Cari repositori">
+        ⌕
+      </button>
+
+    </form>
+
+<div class="kptm-language-switcher">
+
+  <button
+    type="button"
+    class="kptm-language-button"
+    aria-haspopup="true"
+    aria-expanded="false">
+
+    <span class="kptm-language-globe">🌐</span>
+    <span class="kptm-language-current">Bahasa Melayu</span>
+    <span class="kptm-language-arrow">⌄</span>
+
+  </button>
+
+  <div class="kptm-language-menu">
+
+    <a
+      href="{$config{rel_cgipath}}/set_lang?lang=en&amp;referrer={$config{base_url}}">
+      English
+    </a>
+
+    <a
+      href="{$config{rel_cgipath}}/set_lang?lang=ms&amp;referrer={$config{base_url}}">
+      Bahasa Melayu
+    </a>
+
+  </div>
+
+</div>
+
+  </div>
+
+</header>
+     
+
+
+  <!-- ====================================================== -->
+  <!-- MAIN CONTENT                                          -->
+  <!-- ====================================================== -->
+
+  <main id="main_content">
+
+    <div class="ep_tm_page_content">
+
+      <h1
+        id="page-title"
+        class="ep_tm_pagetitle">
+
+        <epc:pin ref="title"/>
+
+      </h1>
+
+      <epc:pin ref="page"/>
+
+    </div>
+
+  </main>
+
+
+  <!-- ====================================================== -->
+  <!-- FOOTER                                                -->
+  <!-- ====================================================== -->
+
+  <footer class="kptm-footer ep_noprint">
+
+    <div class="kptm-footer-grid">
+
+      <div class="kptm-footer-about">
+
+        <strong>
+          Repositori KPTM Batu Pahat
+        </strong>
+
+        <p>
+          Memelihara dan berkongsi ilmu akademik,
+          penyelidikan dan bahan institusi daripada
+          komuniti KPTM Batu Pahat.
+        </p>
+
+      </div>
+
+
+      <div class="kptm-footer-links">
+
+        <strong>
+          Repsotitori
+        </strong>
+
+        <ul>
+
+          <li>
+            <a href="{$config{rel_path}}/view/">
+              Layari
+            </a>
+          </li>
+
+          <li>
+            <a href="{$config{rel_cgipath}}/search/advanced">
+              Carian Lanjutan
+            </a>
+          </li>
+
+          <li>
+            <a href="{$config{rel_path}}/information.html">
+              Mengenai
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+
+      <div class="kptm-footer-system">
+
+        <strong>
+          Sistem Repositori
+        </strong>
+
+        <p>
+          Dikuasakan oleh EPrints 3.4
+        </p>
+
+        <a
+          href="https://eprints.org/software/"
+          rel="external">
+
+          <img
+            src="{$config{rel_path}}/images/eprintslogo.png"
+            alt="EPrints"
+            class="kptm-eprints-logo"
+          />
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="kptm-footer-bottom">
+
+      <span>
+        &#169; KPTM Batu Pahat
+      </span>
+
+      <span>
+        Repositori Perpustakaan Al-Farabi
+      </span>
+
+    </div>
+
+  </footer>
+
+</div>
+
+<script type="text/javascript">
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+
+    var path = window.location.pathname;
+
+    var links = document.querySelectorAll(
+        ".kptm-nav-links > li > a"
+    );
+
+    links.forEach(function (link) {
+
+        var href = link.getAttribute("href");
+
+        if (!href) return;
+
+        var active = false;
+
+        /* Home */
+        if (
+            href === "/" &&
+            (path === "/" || path === "/index.html")
+        ) {
+            active = true;
+        }
+
+        /* About */
+        else if (
+            href.indexOf("information") !== -1 &&
+            path.indexOf("information") !== -1
+        ) {
+            active = true;
+        }
+
+        /* Browse and all browse sub-pages */
+        else if (
+            href.indexOf("/view") !== -1 &&
+            path.indexOf("/view/") === 0
+        ) {
+            active = true;
+        }
+
+        /* Advanced Search */
+        else if (
+            href.indexOf("/cgi/search/advanced") !== -1 &&
+            path.indexOf("/cgi/search/advanced") === 0
+        ) {
+            active = true;
+        }
+
+        if (active) {
+            link.classList.add("is-active");
+        }
+
+    });
+
+});
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+document.addEventListener("DOMContentLoaded", function () {
+
+    var dropdown = document.querySelector(".kptm-nav-dropdown");
+
+    if (!dropdown) {
+        return;
+    }
+
+    var closeTimer = null;
+
+    function openDropdown() {
+        if (closeTimer) {
+            clearTimeout(closeTimer);
+            closeTimer = null;
+        }
+
+        dropdown.classList.add("is-open");
+    }
+
+    function scheduleClose() {
+        if (closeTimer) {
+            clearTimeout(closeTimer);
+        }
+
+        closeTimer = setTimeout(function () {
+            dropdown.classList.remove("is-open");
+        }, 100);
+    }
+
+    dropdown.addEventListener("mouseenter", openDropdown);
+    dropdown.addEventListener("mouseleave", scheduleClose);
+
+    var menu = dropdown.querySelector(".kptm-dropdown-menu");
+
+    if (menu) {
+        menu.addEventListener("mouseenter", openDropdown);
+        menu.addEventListener("mouseleave", scheduleClose);
+    }
+
+});
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var languageSwitcher =
+        document.querySelector(".kptm-language-switcher");
+
+    if (!languageSwitcher) {
+        return;
+    }
+
+    var button =
+        languageSwitcher.querySelector(".kptm-language-button");
+
+    var menu =
+        languageSwitcher.querySelector(".kptm-language-menu");
+
+    button.addEventListener("click", function (event) {
+
+        event.stopPropagation();
+
+        var isOpen =
+            languageSwitcher.classList.toggle("is-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+    document.addEventListener("click", function () {
+
+        languageSwitcher.classList.remove("is-open");
+
+        button.setAttribute(
+            "aria-expanded",
+            "false"
+        );
+
+    });
+
+});
+
+// ]]>
+</script>
+
+<script type="text/javascript">
+// <![CDATA[
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    var modeMount =
+        document.getElementById("kptm-public-mode-mount");
+
+    var identityMount =
+        document.getElementById("kptm-public-identity-mount");
+
+
+    /*
+     * Detect which public template is being displayed.
+     */
+    var htmlLang =
+        (
+            document.documentElement.getAttribute("lang")
+            || "en"
+        ).toLowerCase();
+
+    var isMalay =
+        htmlLang.indexOf("ms") === 0;
+
+
+    var text = isMalay
+        ? {
+            viewMode: "MOD PAPARAN",
+            workspace: "Ruang Kerja",
+            publicView: "Awam",
+            hi: "Hai",
+            staff: "Staf",
+            admin: "Pentadbir Teknikal",
+            workspaceTitle: "Tukar ke Ruang Kerja Staf"
+        }
+        : {
+            viewMode: "VIEW MODE",
+            workspace: "Workspace",
+            publicView: "Public",
+            hi: "Hi",
+            staff: "Staff",
+            admin: "Technical Admin",
+            workspaceTitle: "Switch to Staff Workspace"
+        };
+
+
+    /*
+     * Build the public Workspace/Public switch.
+     */
+    function renderModeSwitch()
+    {
+        if (!modeMount) {
+            return;
+        }
+
+        var control =
+            document.createElement("div");
+
+        control.className =
+            "kptm-public-mode-control";
+
+        control.setAttribute(
+            "aria-label",
+            isMalay
+                ? "Mod antara muka"
+                : "Interface mode"
+        );
+
+
+        var eyebrow =
+            document.createElement("div");
+
+        eyebrow.className =
+            "kptm-mode-eyebrow";
+
+        eyebrow.textContent =
+            text.viewMode;
+
+
+        var segmented =
+            document.createElement("div");
+
+        segmented.className =
+            "kptm-mode-segmented";
+
+
+        /*
+         * Workspace
+         */
+        var workspace =
+            document.createElement("a");
+
+        workspace.href =
+            "/cgi/users/home";
+
+        workspace.className =
+            "kptm-mode-choice";
+
+        workspace.title =
+            text.workspaceTitle;
+
+
+        var power =
+            document.createElement("span");
+
+        power.className =
+            "kptm-mode-power";
+
+        power.textContent =
+            "●";
+
+
+        workspace.appendChild(power);
+        workspace.appendChild(
+            document.createTextNode(
+                text.workspace
+            )
+        );
+
+
+        /*
+         * Public = active
+         */
+        var publicChoice =
+            document.createElement("span");
+
+        publicChoice.className =
+            "kptm-mode-choice is-active";
+
+        publicChoice.setAttribute(
+            "aria-current",
+            "page"
+        );
+
+
+        var indicator =
+            document.createElement("span");
+
+        indicator.className =
+            "kptm-mode-indicator";
+
+
+        publicChoice.appendChild(indicator);
+
+        publicChoice.appendChild(
+            document.createTextNode(
+                text.publicView
+            )
+        );
+
+
+        segmented.appendChild(workspace);
+        segmented.appendChild(publicChoice);
+
+        control.appendChild(eyebrow);
+        control.appendChild(segmented);
+
+        modeMount.replaceChildren(control);
+    }
+
+
+    /*
+     * Build:
+     *
+     * Hi, username
+     * Technical Admin / Staff
+     */
+    function renderIdentity(data)
+    {
+        if (!identityMount) {
+            return;
+        }
+
+        var chip =
+            document.createElement("a");
+
+        chip.href =
+            "/cgi/users/home?screen=User::View";
+
+        chip.className =
+            "kptm-user-chip";
+
+
+        var hello =
+            document.createElement("span");
+
+        hello.className =
+            "kptm-user-chip-hello";
+
+        hello.textContent =
+            text.hi + ", " + data.username;
+
+
+        var role =
+            document.createElement("span");
+
+        role.className =
+            "kptm-user-chip-role";
+
+        role.textContent =
+            data.usertype === "admin"
+                ? text.admin
+                : text.staff;
+
+
+        chip.appendChild(hello);
+        chip.appendChild(role);
+
+        identityMount.replaceChildren(chip);
+    }
+
+
+    /*
+     * Ask the AUTHENTICATED EPrints users area
+     * who the current browser user is.
+     */
+    fetch(
+        "/cgi/kptm_identity",
+        {
+            credentials: "same-origin",
+            cache: "no-store"
+        }
+    )
+    .then(function (response) {
+
+        /*
+         * Anonymous users may be redirected to the
+         * normal EPrints login screen.
+         *
+         * In that case the response will be HTML,
+         * not our JSON endpoint.
+         */
+        var contentType =
+            response.headers.get("content-type")
+            || "";
+
+        if (
+            !response.ok ||
+            contentType.indexOf("application/json") === -1
+        ) {
+            throw new Error(
+                "No authenticated staff session"
+            );
+        }
+
+        return response.json();
+    })
+    .then(function (data) {
+
+    /*
+     * Logged-in Staff / Technical Admin
+     */
+    if (
+        data.logged_in &&
+        data.staff_access
+    ) {
+        renderModeSwitch();
+        renderIdentity(data);
+        return;
+    }
+
+
+    /*
+     * Anonymous visitor
+     *
+     * No Workspace/Public switch.
+     * Show only a normal Staff Login button.
+     */
+    if (identityMount) {
+
+        var login =
+            document.createElement("a");
+
+        login.href =
+            "/cgi/users/login";
+
+        login.className =
+            "kptm-public-staff-login";
+
+        login.textContent =
+            isMalay
+                ? "Log Masuk Staf"
+                : "Staff Login";
+
+        identityMount.replaceChildren(login);
+    }
+
+})
+    .catch(function () {
+
+        /*
+         * Anonymous public visitor.
+         *
+         * Deliberately render nothing:
+         * no Workspace switch
+         * no staff identity.
+         */
+    });
+
+});
+
+// ]]>
+</script>
+
+</body>
+</html>
